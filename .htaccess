@@ -1,0 +1,39 @@
+RewriteEngine On
+RewriteBase /turnero/
+
+# 1. SEGURIDAD: Evitar acceso a la carpeta core
+RewriteRule ^core/.*$ - [F,L]
+
+# 2. REGLAS ESPECÍFICAS (Deben ir primero)
+# ---------------------------------------------------------
+
+# Login y Panel Médico
+RewriteRule ^admin/login-medico/?$ admin/modules/medicos/login_medico.php [L,QSA]
+RewriteRule ^admin/panel-medico/?$ admin/modules/medicos/panel_medico.php [L,QSA]
+RewriteRule ^admin/salir-medico/?$ admin/modules/medicos/logout_medico.php [L,QSA]
+# 2. Reescritura para el Dashboard
+RewriteRule ^dashboard$ admin/dashboard.php [L]
+
+# Admin General
+RewriteRule ^admin/login-admin/?$ admin/login.php [L,QSA]
+
+# Turnos y Horarios
+RewriteRule ^confirmacion/([A-Za-z0-9+/=]+)$ public/ver_turno.php?token=$1 [L,QSA]
+RewriteRule ^medicos/horarios$ admin/modules/medicos/horarios.php [L,QSA]
+RewriteRule ^turnos/nuevo$ admin/modules/turnos/index.php [L,QSA]
+RewriteRule ^turnos/lista$ admin/modules/turnos/lista.php [L,QSA]
+
+# 1. Ruta para el listado de usuarios
+RewriteRule ^admin/usuarios$ admin/modules/usuarios/index.php [L,QSA]
+
+# 2. Ruta para las acciones (si decides usarlas como URLs limpias)
+RewriteRule ^admin/usuarios/guardar$ admin/modules/usuarios/guardar_usuario.php [L,QSA]
+RewriteRule ^admin/usuarios/actualizar$ admin/modules/usuarios/actualizar_usuario.php [L,QSA]
+RewriteRule ^admin/usuarios/eliminar$ admin/modules/usuarios/eliminar_usuario.php [L,QSA]
+
+# 3. REGLA GENERAL (Añadir .php automáticamente)
+# ---------------------------------------------------------
+# Solo se ejecuta si ninguna de las reglas de arriba coincidió
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

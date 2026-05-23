@@ -1,0 +1,204 @@
+:root {
+    --azul-sintek: #004a99;
+    --celeste-sintek: #00c3ff;
+    --texto-oscuro: #2d3436;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto-oscuro);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, rgba(0, 74, 153, 0.9) 0%, rgba(0, 195, 255, 0.7) 100%), 
+                url('../img/hospital-bg.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+.btn-primary {
+    background-color: var(--azul-sintek);
+    border-color: var(--azul-sintek);
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+    transform: translateY(-2px);
+    transition: all 0.3s;
+}
+
+/* Botón WhatsApp Flotante Animado */
+.wa-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    color: white;
+    background-color: #128c7e;
+}
+
+/* Estilos para el Staff Médico */
+.card-staff {
+    transition: all 0.4s ease;
+    border-radius: 15px;
+}
+
+.card-staff:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 74, 153, 0.15) !important;
+}
+
+.card-staff img {
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.card-staff-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 74, 153, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-staff:hover .card-staff-overlay {
+    opacity: 1;
+}
+
+.card-staff:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilos Especialidades */
+.item-especialidad {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+.item-especialidad:hover {
+    background-color: var(--azul-sintek);
+    transform: translateY(-5px);
+}
+
+.item-especialidad:hover h5, 
+.item-especialidad:hover i {
+    color: white !important;
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.item-especialidad:hover .icon-box {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#nosotros img {
+    transition: transform 0.5s ease;
+    border-left: 8px solid var(--celeste-sintek);
+}
+
+#nosotros img:hover {
+    transform: scale(1.02);
+}
+
+#nosotros .bg-primary {
+    background-color: var(--azul-sintek) !important;
+}
+
+/* Estilos Tabs Ubicación */
+.custom-location-tabs .nav-link {
+    background-color: #e9ecef;
+    color: var(--texto-oscuro);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.custom-location-tabs .nav-link.active {
+    background-color: var(--azul-sintek) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(0, 74, 153, 0.3);
+}
+
+/* Iconos de Dirección/Reloj */
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+/* Ajuste del Mapa */
+iframe {
+    display: block; /* Elimina espacios extra */
+    filter: grayscale(0.2); /* Un toque sutil de elegancia */
+}
+
+/* Redondear esquinas del contenedor del mapa en desktop */
+@media (min-width: 992px) {
+    .rounded-4 { border-radius: 20px !important; }
+}
+
+.footer-sintek {
+    background-color: #030a15; /* Azul oscuro profundo de la imagen */
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--celeste-sintek);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Ajuste del Logo en el Navbar para que se vea como el de la imagen */
+.navbar-brand img {
+    height: 55px; /* Tamaño ideal según el logo que pasaste */
+}

@@ -1,0 +1,17 @@
+# Archivos de documentación sueltos
+*.docx
+*.doc
+*.pdf
+
+# Archivos de entorno y base de datos locales
+.env
+core/db_config.php
+config/database.php
+
+# Logs y temporales
+*.log
+/tmp/
+
+# Carpetas del IDE
+.vscode/
+.idea/
