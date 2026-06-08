@@ -3,6 +3,12 @@
 session_start();
 require_once '../../../core/config.php';
 
+// Si está en modo demostración, el módulo de usuarios no está disponible
+if (defined('DEMO_MODE') && DEMO_MODE) {
+    header("Location: ../../dashboard.php");
+    exit;
+}
+
 // Protección de Rol: Solo Admin entra aquí
 if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
     header("Location: ../../login.php"); // O un mensaje de error

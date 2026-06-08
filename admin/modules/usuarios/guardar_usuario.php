@@ -2,6 +2,11 @@
 require_once '../../../core/config.php';
 header('Content-Type: application/json');
 
+if (defined('DEMO_MODE') && DEMO_MODE) {
+    echo json_encode(['status' => 'error', 'message' => 'Acción no disponible en el entorno de demostración.']);
+    exit;
+}
+
 if ($_POST) {
     $nombre   = $_POST['nombre'];
     $usuario  = $_POST['usuario'];

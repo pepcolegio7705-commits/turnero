@@ -86,7 +86,7 @@ $url_base = "/turnero/admin/modules/";
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto me-auto">
 
-                <?php if ($_SESSION['usuario_rol'] === 'admin'): ?>
+                <?php if ($_SESSION['usuario_rol'] === 'admin' && (!defined('DEMO_MODE') || !DEMO_MODE)): ?>
                 <li class="nav-item">
                     <a class="nav-link px-3" href="/turnero/admin/usuarios">
                         <i data-lucide="shield-check" class="me-1" style="width:18px;"></i> Usuarios

@@ -11,6 +11,9 @@ define('HASH_KEY', 'CMA_Austral_Secure_2026_#99');
 define('SECRET_IV', '101214'); // Vector de inicialización para cifrado
 define('METHOD', 'aes-256-cbc');
 
+// Modo Demostración (Oculta y bloquea la gestión de usuarios)
+define('DEMO_MODE', true);
+
 // Configuración de zona horaria (Rawson, Chubut)
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 

@@ -18,4 +18,7 @@ Esta directiva sirve como plantilla base y **Fuente de la Verdad** para mí (Tu 
 
 ## Restricciones / Casos Borde (Memoria Viva)
 > *Nota: Todo aprendizaje nuevo tras un error se documenta aquí.*
-- (Por documentar en futuros módulos)
+- **Modo Demostración (`DEMO_MODE`):** Debe mantenerse activo en `core/config.php` al subir el sistema para pruebas públicas. Esto bloquea y oculta automáticamente toda la gestión del módulo de usuarios (`admin/modules/usuarios/*`) de forma segura.
+- **Acceso Directo y Seguridad:** La base de datos original (`turnero.sql`) y el script de limpieza (`reset_demo.php`) están estrictamente bloqueados contra solicitudes HTTP directas en el archivo `.htaccess` mediante la regla `RewriteRule ^.*\.sql$ - [F,L]`.
+- **Rutina de Limpieza:** El script `reset_demo.php` se integra con la configuración local para reconstruir la base de datos limpia de demostración, y solo debe ejecutarse por consola (CLI) o con el token de seguridad autorizado.
+

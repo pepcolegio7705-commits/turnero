@@ -3,6 +3,11 @@ require_once '../../../core/config.php';
 session_start();
 header('Content-Type: application/json');
 
+if (defined('DEMO_MODE') && DEMO_MODE) {
+    echo json_encode(['status' => 'error', 'message' => 'Acción no disponible en el entorno de demostración.']);
+    exit;
+}
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 

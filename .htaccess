@@ -1,8 +1,10 @@
 RewriteEngine On
 RewriteBase /turnero/
 
-# 1. SEGURIDAD: Evitar acceso a la carpeta core
+# 1. SEGURIDAD: Evitar acceso a la carpeta core, archivos SQL y script de reseteo
 RewriteRule ^core/.*$ - [F,L]
+RewriteRule ^.*\.sql$ - [F,L]
+RewriteRule ^reset_demo\.php$ - [F,L]
 
 # 2. REGLAS ESPECÍFICAS (Deben ir primero)
 # ---------------------------------------------------------
